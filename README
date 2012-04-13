@@ -1,5 +1,5 @@
 InterviewMe
 
-A small web application that displays commonly asked Questions & Answers for Technical Interviews.
+A small Ruby on Rails web application that displays commonly asked Questions & Answers for Technical Interviews.
 
 * Using jQuery Mobile for display
