@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/mrose/!svn/ver/789/projects/InterviewMe/test/fixtures
+END
+user_answers.yml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/mrose/!svn/ver/789/projects/InterviewMe/test/fixtures/user_answers.yml
+END
+articles.yml
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/mrose/!svn/ver/789/projects/InterviewMe/test/fixtures/articles.yml
+END
+questions.yml
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/mrose/!svn/ver/789/projects/InterviewMe/test/fixtures/questions.yml
+END

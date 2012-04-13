@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/mrose/!svn/ver/789/projects/InterviewMe/config/initializers
+END
+inflections.rb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/mrose/!svn/ver/789/projects/InterviewMe/config/initializers/inflections.rb
+END
+session_store.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/mrose/!svn/ver/789/projects/InterviewMe/config/initializers/session_store.rb
+END
+secret_token.rb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/mrose/!svn/ver/789/projects/InterviewMe/config/initializers/secret_token.rb
+END
+backtrace_silencers.rb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/mrose/!svn/ver/789/projects/InterviewMe/config/initializers/backtrace_silencers.rb
+END
+mime_types.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/mrose/!svn/ver/789/projects/InterviewMe/config/initializers/mime_types.rb
+END

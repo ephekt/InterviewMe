@@ -1,0 +1,13 @@
+<h1>Listing articles (<%= link_to 'New Article', new_article_path %>)</h1>
+
+<% @articles.each do |article| %>
+  <div>
+    <h3><%= article.question_short %>
+    <span style="font-size:12px">
+      <%= link_to 'Show', article %> | 
+      <%= link_to 'Edit', edit_article_path(article) %> | 
+      <%= link_to 'Destroy', article, :confirm => 'Are you sure?', :method => :delete %>
+      </span>
+    </h3>
+  </div>
+<% end %>

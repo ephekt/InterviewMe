@@ -1,0 +1,13 @@
+.full_answer {
+  background-color: #FFF;
+}
+
+.info{font-size:18px;line-height:16px;text-align:center;color:#444;padding:15px;font-weight:bold}
+
+.ui-btn-inner {
+  padding: 0.em 18px !important;
+}
+
+.ui-page {
+    -webkit-backface-visibility: hidden !important;
+}

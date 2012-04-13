@@ -1,0 +1,98 @@
+<div id="question_list" data-role="page" data-theme="a" data-content-theme="a">
+    <div data-role='header'>
+        <h1>InterviewMe</h1>
+        <a href="#about" data-icon="info" data-rel="dialog" data-transition="slidedown" class="ui-btn-right">About</a>
+    </div>
+
+      <ul id="questions" class="ui-listview ui-corner-all ui-shadow" data-role="listview"></ul>
+</div>
+
+<div id="answer_question" data-role="page" data-theme="a" data-content-theme="a">
+  <div data-role='header'>
+      <h1>Submit Answer</h1>
+      <a href="#" data-rel="back" data-role="button">Back</a>
+      <a href="#question_list" data-role="button">Questions</a>
+  </div>
+
+<!-- >  <div data-role="content"> -->
+    <form action="/articles/store_answer" method="post">    
+      <input type='hidden' id='answer_question_id' value="">
+    
+      <div data-role="fieldcontain">
+          <label for="name" class="ui-hidden-accessible">E-mail:</label>
+          <input type="text" name="email" placeholder="E-mail Address (Optional)" id="submit_email_address" value=""  />
+      </div>
+    
+      <label for="user_answer_text" class="ui-hidden-accessible">Textarea:</label>
+      <textarea name="user_answer" id="user_answer_text" placeholder="Your Answer"></textarea>
+    
+      <fieldset data-role="controlgroup" data-type="horizontal">
+        <legend>Difficulty</legend>
+        <input type="radio" id="radio_choice_1" name="difficulty" value="easy" title="Easy">
+        <label for="radio_choice_1">Easy</label>
+        <input type="radio" id="radio_choice_2" name="difficulty" value="medium" title="Medium">
+        <label for="radio_choice_2">Medium</label>
+        <input type="radio" id="radio_choice_3" name="difficulty" value="hard" title="Hard">
+        <label for="radio_choice_3">Hard</label>
+      </fieldset>
+    
+      <button href="#" data-role="button" data-icon="check" data-iconpos="right" type="submit">Submit Answer</button>
+    </form>
+  </div>
+<!-- > </div> -->
+
+<div id="about" data-role="page">
+  <div data-role="header" data-theme="d">
+      <h1>About</h1>
+    </div>
+
+    <div data-role="content" data-theme="c">
+      <p>We're a small team of software developers who have interviewed (and worked at) everything from the hottest start-ups to the largest corporations. We pulled together questions we ask when we hire, and ones we were asked when interviewing. We'll try to include <code>pseudo code</code> and ways to think about the problem.</p>
+      <a data-role="button" data-rel="back" data-theme="b">Sounds good</a>
+    </div>
+</div>
+<%= javascript_include_tag 'jquery.mobile-1.0.min' %>
+<script type="text/javascript">
+  SUPER_EDITION = false;
+  
+  function populate_answer_with_question_id(question_id) {
+    $('#answer_question_id').val(question_id);
+    $('#user_answer_text').val("");
+  }
+
+  if($('ul#questions').length > 0) {
+    function generate_question(obj) {
+      var out = "<div id='question_"+obj.id+"' data-role='page' data-theme='a' data-content-theme='a'>" +
+        "<div data-role='header'>" +
+          "<a data-rel='back' data-role='button' href='#'>Back</a>" +
+          "<h1>"+obj.question_short+"</h1>" +
+        "</div>";
+      out += "<div data-role='content'>"+obj.question_long;
+      out += '<div data-role="collapsible"><h3>View Our Answer</h3><p>'+obj.answer_long+'</p></div>';
+      if(SUPER_EDITION) {
+        out += '<a href="#answer_question" data-role="button" data-icon="arrow-r" data-iconpos="right" onclick="populate_answer_with_question_id('+obj.id+');">Submit Answer</a></div></div>';
+      } else {
+        out += '</div></div>';
+      }
+
+      return out;
+    }
+    var url = 'http://interviewme.heroku.com/articles.json?' + (SUPER_EDITION ? 'super_edition=1' : 'standard_edition=1');
+    console.log(url);
+    jQuery.ajax({
+      url: url,
+      dataType: "jsonp",
+      success: function(data) {
+        var questions = "";
+        var explained = "";
+        jQuery.each(data.articles,function(index,obj) {
+          questions += "<li><a href='#' onClick=\"$.mobile.changePage('#question_"+obj.id+"');\">" + obj.question_short + "</a></li>";
+          explained += generate_question(obj);
+        });
+        $('#questions').append(questions);
+        $('body').append( explained );
+        $('ul#questions').listview('refresh');
+      }
+    });
+  }
+</script>

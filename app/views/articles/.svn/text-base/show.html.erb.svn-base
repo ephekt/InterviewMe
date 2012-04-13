@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Answer long:</b>
+  <%= @article.answer_long %>
+</p>
+
+<p>
+  <b>Answer short:</b>
+  <%= @article.answer_short %>
+</p>
+
+<p>
+  <b>Question long:</b>
+  <%= @article.question_long %>
+</p>
+
+<p>
+  <b>Question short:</b>
+  <%= @article.question_short %>
+</p>
+
+
+<%= link_to 'Edit', edit_article_path(@article) %> |
+<%= link_to 'Back', articles_path %>

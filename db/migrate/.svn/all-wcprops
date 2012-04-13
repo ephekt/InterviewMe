@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/mrose/!svn/ver/789/projects/InterviewMe/db/migrate
+END
+20111029043653_create_articles.rb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/mrose/!svn/ver/789/projects/InterviewMe/db/migrate/20111029043653_create_articles.rb
+END
+20120115063514_add_free_to_articles.rb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/mrose/!svn/ver/789/projects/InterviewMe/db/migrate/20120115063514_add_free_to_articles.rb
+END
+20120112201542_create_user_answers.rb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/mrose/!svn/ver/789/projects/InterviewMe/db/migrate/20120112201542_create_user_answers.rb
+END

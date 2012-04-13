@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html class="ui-mobile"><head><base href="http://localhost:3000/">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title>InterviewApp</title>
+  <link type="text/css" rel="stylesheet" media="screen" href="/stylesheets/scaffold.css?1326477611">
+<link type="text/css" rel="stylesheet" media="screen" href="/stylesheets/styles.css?1326606292">
+<link type="text/css" rel="stylesheet" media="screen" href="/stylesheets/jquery.mobile-1.0.min.css?1326477611">
+  <script type="text/javascript" src="/javascripts/jquery.js?1324544080"></script>
+<script type="text/javascript" src="/javascripts/jquery_ujs.js?1319868587"></script>
+<script type="text/javascript" src="/javascripts/jquery.mobile-1.0.min.js?1326477611"></script>
+<script type="text/javascript" src="/javascripts/application.js?1319861361"></script>
+  <meta content="authenticity_token" name="csrf-param">
+<meta content="fCo2cCMeBAbe+eptb8Z6IL3i57FKMfFTR2LkKsCEMWk=" name="csrf-token">
+  
+</head>
+<body class="ui-mobile-viewport">
+  <div data-content-theme="a" data-theme="a" data-role="page" id="question_list" data-url="question_list" tabindex="0" class="ui-page ui-body-a ui-page-active" style="min-height: 320px;">
+    <div data-role="header" class="ui-header ui-bar-a" role="banner">
+        <h1 class="ui-title" tabindex="0" role="heading" aria-level="1">InterviewMe</h1>
+        <a class="ui-btn-right ui-btn ui-btn-up-a ui-btn-icon-left ui-btn-corner-all ui-shadow" data-transition="slidedown" data-rel="dialog" data-icon="info" href="#about" data-theme="a"><span class="ui-btn-inner ui-btn-corner-all" aria-hidden="true"><span class="ui-btn-text">About</span><span class="ui-icon ui-icon-info ui-icon-shadow"></span></span></a>
+    </div>
+
+      <ul data-role="listview" class="ui-listview ui-corner-all ui-shadow" id="questions"><li data-theme="a" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-a"><div class="ui-btn-inner ui-li" aria-hidden="true"><div class="ui-btn-text"><a href="#question_5" class="ui-link-inherit">Find two items in a list quickly...</a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span></div></li><li data-theme="a" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-a"><div class="ui-btn-inner ui-li" aria-hidden="true"><div class="ui-btn-text"><a href="#question_6" class="ui-link-inherit">Pirates love Booty</a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span></div></li><li data-theme="a" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-a"><div class="ui-btn-inner ui-li" aria-hidden="true"><div class="ui-btn-text"><a href="#question_7" class="ui-link-inherit">Airports</a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span></div></li></ul>
+</div>
+
+<div data-content-theme="a" data-theme="a" data-role="page" id="answer_question" data-url="answer_question">
+  <div data-role="header">
+      <h1>Submit Answer</h1>
+      <a data-role="button" data-rel="back" href="#">Back</a>
+      <a data-role="button" href="#question_list">Questions</a>
+  </div>
+
+<!-- >  <div data-role="content"> -->
+    <form method="post" action="/articles/store_answer">    
+      <input type="hidden" value="" id="answer_question_id">
+    
+      <div data-role="fieldcontain">
+          <label class="ui-hidden-accessible" for="name">E-mail:</label>
+          <input type="text" value="" id="submit_email_address" placeholder="E-mail Address (Optional)" name="email">
+      </div>
+    
+      <label class="ui-hidden-accessible" for="user_answer_text">Textarea:</label>
+      <textarea placeholder="Your Answer" id="user_answer_text" name="user_answer"></textarea>
+    
+      <fieldset data-type="horizontal" data-role="controlgroup">
+        <legend>Difficulty</legend>
+        <input type="radio" title="Easy" value="easy" name="difficulty" id="radio_choice_1">
+        <label for="radio_choice_1">Easy</label>
+        <input type="radio" title="Medium" value="medium" name="difficulty" id="radio_choice_2">
+        <label for="radio_choice_2">Medium</label>
+        <input type="radio" title="Hard" value="hard" name="difficulty" id="radio_choice_3">
+        <label for="radio_choice_3">Hard</label>
+      </fieldset>
+    
+      <button type="submit" data-iconpos="right" data-icon="check" data-role="button" href="#">Submit Answer</button>
+    </form>
+  </div>
+<!-- > </div> -->
+
+<div data-role="page" id="about" data-url="about">
+  <div data-theme="d" data-role="header">
+      <h1>About</h1>
+    </div>
+
+    <div data-theme="c" data-role="content">
+      <p>We're a small team of software developers who have interviewed (and worked at) everything from the hottest start-ups to the largest corporations. We pulled together questions we ask when we hire, and ones we were asked when interviewing. We'll try to include <code>pseudo code</code> and ways to think about the problem.</p>
+      <a data-theme="b" data-rel="back" data-role="button">Sounds good</a>
+    </div>
+</div>
+
+<div class="ui-loader ui-body-a ui-corner-all" style="top: 325px;"><span class="ui-icon ui-icon-loading spin"></span><h1>loading</h1></div><div data-content-theme="a" data-theme="a" data-role="page" id="question_5"><div data-role="header"><a href="#" data-role="button" data-rel="back">Back</a><h1>Find two items in a list quickly...</h1></div><div data-role="content">Given a list of a million signed integers we want to find two that add up to zero. Space complexity is not important initially, however the speed to which we find these numbers is. 
+
+The integers are stored in an unsorted array. The number of items in the array is not that important. It could be 1 billion tomorrow.<div data-role="collapsible"><h3>View Our Answer</h3><p>Use a hash. Store each vale you have seen in the hash. As you iterate over new items, negate the value and see if the opposite value is already in the hash. If so, you're done. If not, keep looking.</p></div><a onclick="populate_answer_with_question_id(5);" data-iconpos="right" data-icon="arrow-r" data-role="button" href="#answer_question">Submit Answer</a></div></div><div data-content-theme="a" data-theme="a" data-role="page" id="question_6"><div data-role="header"><a href="#" data-role="button" data-rel="back">Back</a><h1>Pirates love Booty</h1></div><div data-role="content">You have 5 pirates. Each pirate is smart... Etc.<div data-role="collapsible"><h3>View Our Answer</h3><p>Get em while they are hot!</p></div><a onclick="populate_answer_with_question_id(6);" data-iconpos="right" data-icon="arrow-r" data-role="button" href="#answer_question">Submit Answer</a></div></div><div data-content-theme="a" data-theme="a" data-role="page" id="question_7"><div data-role="header"><a href="#" data-role="button" data-rel="back">Back</a><h1>Airports</h1></div><div data-role="content">Design an airport with trafficking built in.<div data-role="collapsible"><h3>View Our Answer</h3><p>Etc.</p></div><a onclick="populate_answer_with_question_id(7);" data-iconpos="right" data-icon="arrow-r" data-role="button" href="#answer_question">Submit Answer</a></div></div></body></html>
